@@ -1,7 +1,7 @@
 # Contact Book
 
 ## Description
-A simple command-line application built in Python to manage contacts. The application allows users to add, search, update, delete, and display contacts through a menu-driven interface. Contact information is stored using Python dictionaries.
+A simple command-line application built in Python to manage contacts. The application allows users to add, search, update, delete, and display contacts through a menu-driven interface. Contact information is stored using Python dictionaries and saved to a text file so contacts persist after closing the program.
 
 ## Features
 - Add a new contact.
@@ -12,6 +12,8 @@ A simple command-line application built in Python to manage contacts. The applic
 - Prevent duplicate contact names.
 - Prevent duplicate phone numbers.
 - Input validation for empty names and phone numbers.
+- Load saved contacts when the program starts.
+- Save contacts to a file when the program exits.
 
 ## Technologies Used
 - Python 3
@@ -19,6 +21,8 @@ A simple command-line application built in Python to manage contacts. The applic
 - Functions
 - Loops
 - Conditional statements
+- File Handling
+- Exception Handling
 
 ## How to Run
 1. Clone this repository.
@@ -36,13 +40,14 @@ python contact_book.py
 - Validating user input.
 - Organizing code into reusable functions.
 - Building menu-driven applications.
+- Reading and writing data using text files.
+- Using try/except to handle missing files.
+- Converting file data into dictionary data and vice versa.
 
 
 ## Future Improvements
-- Save contacts to a file so data persists after closing the program.
 - Store additional contact information such as email and address.
 - Add phone number format validation.
-- Make searches case-insensitive.
 - Improve the user interface.
 
 

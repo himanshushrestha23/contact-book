@@ -1,7 +1,25 @@
 user_input=""
 contacts={}
 
+try: 
+  with open("contact_book.txt","r") as file:
+    for line in file:
+        if line.strip() =="":
+           continue
+
+        parts=line.split(":")
+        name=parts[0]
+        number=parts[1]
+        contacts[name]=number
+     
+
+except FileNotFoundError:
+   pass
+
+
+
 def add_contact():
+
   contact_name=input("Enter name: ").strip()
   if contact_name=="":
      print("Contact cannot be empty")
@@ -71,14 +89,9 @@ def show_contact():
   print("Contacts: ")
   for contact_name in sorted(contacts): # ~ for key in sorted(dictionary)
     print(f"{contact_name} : {contacts[contact_name]}")
-  
-
-
-
 
 while True:
-  print("""
-  ========== CONTACT BOOK ==========
+  print("""========== CONTACT BOOK ==========
 
   1. Add Contact
   2. Search Contact
@@ -100,6 +113,9 @@ while True:
   elif user_input=="5":
     show_contact()
   elif user_input=="6": 
+    with open("contact_book.txt","w") as file:
+       for contact_name, contact_number in contacts.items():
+          file.write(f"{contact_name}:{contact_number}\n")
     break
   else:
     print("Invalid option")

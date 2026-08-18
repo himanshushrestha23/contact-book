@@ -1,17 +1,16 @@
 user_input=""
 contacts={}
 
+# Open the file in read mode.
 try: 
   with open("contact_book.txt","r") as file:
     for line in file:
-        if line.strip() =="":
-           continue
-
         parts=line.split(":")
         name=parts[0]
-        number=parts[1]
+        number=parts[1].strip()  # When Python reads a line from a file, it includes \n at the end, and strip() removes it.
+
+        print(repr(number))
         contacts[name]=number
-     
 
 except FileNotFoundError:
    pass
@@ -57,9 +56,10 @@ def search_contact():
         if search_number==contact_number:
           print(f"Name : {contact_name}")
           print(f"Number : {search_number}")
+          break
 
-        else:
-          print("Contact not found.")
+    else:
+      print("Contact not found.")
 
   else:
       print("Invalid option")
